@@ -15,11 +15,18 @@ public class Router extends AbstractActor {
         pool = getContext().actorOf(new RoundRobinPool(NUMBER_WORKERS).props(Props.create(TestGet.class, storeActor)));
     }
 
+    private void runTests(TestMessage test) {
+        for (Test t : test.getTests()) {
+            t.setParentTest(test);
+            pool.tell(t, ActorRef.noSender());
+        }
+    }
+
     @Override
     public Receive createReceive() {
         return ReceiveBuilder
                 .create()
-                .match(Test.class, msg -> runTests(msg))
+                .match(TestMessage.class, msg -> runTests(msg))
     }
     
 }
