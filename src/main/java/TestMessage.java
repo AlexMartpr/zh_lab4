@@ -30,4 +30,16 @@ public class TestMessage implements Serializable {
         return this.packageId;
     }
 
+    public String getTypeScript() {
+        return this.typeScript;
+    }
+
+    public String getNameFunction() {
+        return this.nameFunction;
+    }
+
+    public List<Te> getTests() {
+        return this.te;
+    }
+
 }
