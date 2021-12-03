@@ -1,6 +1,6 @@
-import java.util.regex.Pattern;
 
 import akka.actor.ActorRef;
+import akka.compat.Future;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
@@ -14,7 +14,7 @@ public class RouterDefine extends AllDirectives {
         this.router = r;
     }
 
-    public Route createRoute() {
+    public Route createRoute(Object Patterns) {
         return concat(
             get(() -> 
                 parameter(PARAMETR_NAME, id -> {
