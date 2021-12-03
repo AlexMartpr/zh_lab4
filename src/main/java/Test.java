@@ -23,6 +23,7 @@ public class Test implements Serializable {
         this.testName = tn;
         this.expectedResult = er;
         this.params = p;
+        this.actualResult = "";
     }
 
     public String getTestName() {
@@ -41,8 +42,16 @@ public class Test implements Serializable {
         return this.parentTest;
     }
 
+    public String getActualResult() {
+        return this.actualResult;
+    }
+
     public void setParentTest(TestMessage p) {
         this.parentTest = p;
+    }
+
+    public void setActualResult(String r) {
+        this.actualResult = r;
     }
 
 }
