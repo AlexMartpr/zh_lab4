@@ -8,6 +8,6 @@ public class AkkaApp {
         ActorSystem sys = ActorSystem.create("AkkaApp");
         ActorRef route = sys.actorOf(Props.create(Router.class, sys));
 
-        final Http http = http.get(sys);
+        final Http http = Http.get(sys);
     }
 }
