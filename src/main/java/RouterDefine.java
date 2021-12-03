@@ -22,7 +22,12 @@ public class RouterDefine extends AllDirectives {
                     return completeOKWithFuture(res, Jackson.marshaller());
             })),
             post(() ->
-                entity() )
+                entity(
+                    Jackson.unmarshaller(TestMessage.class), testMsg -> {
+                        router.tell(testMsg, ActorRef.noSender());
+                        return complete("OK");
+                    }
+                ) )
         )
     }
 }
