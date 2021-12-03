@@ -1,6 +1,7 @@
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TestMessage implements Serializable {
@@ -14,7 +15,7 @@ public class TestMessage implements Serializable {
     private final String TYPE_SCRIPT = "jsScript";
     private final String TESTS = "tests";
 
-
+    @JsonCreator
     public TestMessage(
             @JsonProperty(PACKAGE_ID) String pId,
             @JsonProperty(TYPE_SCRIPT) String ts,
