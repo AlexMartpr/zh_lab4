@@ -36,6 +36,10 @@ public class Test implements Serializable {
         return this.params;
     }
 
+    public TestMessage getParentTest() {
+        return this.parentTest;
+    }
+
     public void setParentTest(TestMessage p) {
         this.parentTest = p;
     }
