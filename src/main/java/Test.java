@@ -34,5 +34,4 @@ public class Test implements Serializable {
     public Object[] getParams() {
         return this.params;
     }
-
 }
