@@ -26,6 +26,8 @@ public class TestMessage implements Serializable {
         this.typeScript = ts;
     }
 
-    
+    public String getPackageId() {
+        return this.packageId;
+    }
 
 }
