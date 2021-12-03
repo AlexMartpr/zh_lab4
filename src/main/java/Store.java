@@ -23,7 +23,19 @@ public class Store extends AbstractActor {
         }
     }
 
-    private Map<String, String> prepareRes
+    private Map<String, String> prepareRes(String pId) {
+        Map<String, String> mapTestsResult = new HashMap<>();
+        if (this.store.containsKey(pId)) {
+            for (Test test : this.store.get(pId)) {
+                if (test.getActualResult().equals(test.getExpectedResult())) {
+                    mapTestsResult.put(test.getTestName(), SUCCESS);
+                } else {
+                    mapTestsResult.put(test.getTestName(), FAIL);
+                }
+            }
+        }
+        return mapTestsResult;
+    }
 
     @Override
     public Receive createReceive() {
