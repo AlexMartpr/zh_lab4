@@ -15,7 +15,12 @@ public class TestMessage implements Serializable {
 
 
     public TestMessage(
-            @JsonProperty(PACKAGE_ID) String pId
-    )
+            @JsonProperty(PACKAGE_ID) String pId,
+            @JsonProperty(TYPE_SCRIPT) String ts,
+            @JsonProperty(NAME_FUNCTION) String nf,
+            @JsonProperty(TESTS) String t
+    ) {
+        
+    }
 
 }
