@@ -20,7 +20,12 @@ public class TestMessage implements Serializable {
             @JsonProperty(NAME_FUNCTION) String nf,
             @JsonProperty(TESTS) String t
     ) {
-        
+        this.packageId = pId;
+        this.nameFunction = nf;
+        this.tests = t;
+        this.typeScript = ts;
     }
+
+    
 
 }
