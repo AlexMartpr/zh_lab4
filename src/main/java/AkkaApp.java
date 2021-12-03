@@ -11,6 +11,7 @@ public class AkkaApp {
 
         final Http http = Http.get(sys);
         final ActorMaterializer actorMat = ActorMaterializer.create(sys);
-        final AkkaApp instance = new AkkaApp(); 
+        final AkkaApp instance = new AkkaApp();
+         
     }
 }
