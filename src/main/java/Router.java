@@ -12,7 +12,7 @@ public class Router extends AbstractActor {
 
     public Router() {
         storeActor = getContext().actorOf(Props.create(Store.class));
-        pool = getContext().actorOf(new RoundRobinPool(NUMBER_WORKERS).props(Props.create(TestGet.class, storeActor)));
+        pool = getContext().actorOf(new RoundRobinPool(NUMBER_WORKERS).props(Props.create(TesterActor.class, storeActor)));
     }
 
     private void runTests(TestMessage test) {
