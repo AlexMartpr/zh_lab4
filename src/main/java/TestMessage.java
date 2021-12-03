@@ -1,11 +1,12 @@
 import java.io.Serializable;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TestMessage implements Serializable {
     private String packageId;
     private String nameFunction;
-    private String tests;
+    private List<Test> tests;
     private String typeScript;
 
     private final String PACKAGE_ID = "packageId";
@@ -18,7 +19,7 @@ public class TestMessage implements Serializable {
             @JsonProperty(PACKAGE_ID) String pId,
             @JsonProperty(TYPE_SCRIPT) String ts,
             @JsonProperty(NAME_FUNCTION) String nf,
-            @JsonProperty(TESTS) String t
+            @JsonProperty(TESTS) List<Test> t
     ) {
         this.packageId = pId;
         this.nameFunction = nf;
@@ -38,8 +39,8 @@ public class TestMessage implements Serializable {
         return this.nameFunction;
     }
 
-    public List<Te> getTests() {
-        return this.te;
+    public List<Test> getTests() {
+        return this.tests;
     }
 
 }
