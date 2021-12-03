@@ -1,9 +1,18 @@
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import akka.routing.RoundRobinPool;
 
 public class Router extends AbstractActor {
     private final ActorRef storeActor;
-    pr
+    private final ActorRef pool;
 
+    private final int NUMBER_WORKERS = 5;
+
+    public Router() {
+        storeActor = getContext().actorOf(Props.create(Store.class));
+        pool = getContext().actorOf(new RoundRobinPool(NUMBER_WORKERS).props(Props.create(TestGet.class, storeActor)));
+    }
 
     @Override
     public Receive createReceive() {
