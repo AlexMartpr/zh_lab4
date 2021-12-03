@@ -1,6 +1,7 @@
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 
 public class Router extends AbstractActor {
@@ -16,7 +17,9 @@ public class Router extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return null;
+        return ReceiveBuilder
+                .create()
+                .match(Test.class, msg -> runTests(msg))
     }
     
 }
