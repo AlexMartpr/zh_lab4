@@ -5,5 +5,6 @@ public class Test implements Serializable {
     private String expectedResult;
     private Object[] params;
 
-    
+    private static final TEST_NAME = "testName";
+    private static final
 }
