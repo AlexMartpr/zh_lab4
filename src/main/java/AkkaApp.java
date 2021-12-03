@@ -10,6 +10,6 @@ public class AkkaApp {
         ActorRef route = sys.actorOf(Props.create(Router.class, sys));
 
         final Http http = Http.get(sys);
-        final ActorMaterializeractorMat 
+        final ActorMaterializer actorMat = ActorMaterializer.create(sys); 
     }
 }
