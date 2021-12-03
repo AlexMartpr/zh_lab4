@@ -1,13 +1,11 @@
-import java.io.Serializable;
-
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.japi.pf.ReceiveBuilder;
-import akka.http.scaladsl.model.headers.CacheDirectives.private;
 
 public class TesterActor extends AbstractActor{
     private ActorRef storeActor;
@@ -18,7 +16,7 @@ public class TesterActor extends AbstractActor{
         this.storeActor = ac;
     }
 
-    private String runTest(Test test) {
+    private String runTest(Test test) throws ScriptException, NoSuchMethodException {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName(JS_VER);
         TestMessage parent = test.getParentTest();
         engine.eval(parent.getTypeScript());
