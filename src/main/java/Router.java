@@ -27,6 +27,7 @@ public class Router extends AbstractActor {
         return ReceiveBuilder
                 .create()
                 .match(TestMessage.class, msg -> runTests(msg))
+                .match(String.class, msg -> storeActor.forward(msg, getContext()))
+                .build();
     }
-    
 }
