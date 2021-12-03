@@ -10,12 +10,12 @@ import akka.stream.javadsl.Flow;
 
 public class AkkaApp {
     public static void main(String[] args) {
-        ActorSystem sys = ActorSystem.create("AkkaApp");
+        ActorSystem sys = ActorSystem.create("AkkaApplication");
         ActorRef route = sys.actorOf(Props.create(Router.class, sys));
 
         final Http http = Http.get(sys);
         final ActorMaterializer actorMat = ActorMaterializer.create(sys);
-        final AkkaApp instance = new AkkaApp();
-        final Flow<HttpRequest, HttpResponse, NotUsed> flow =  
+        final AkkaApplication instance = new AkkaApplication();
+        final Flow<HttpRequest, HttpResponse, NotUsed> flow = instance.createRoute()
     }
 }
