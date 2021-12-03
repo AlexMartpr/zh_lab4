@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Test implements Serializable {
     private String testName;
     private String expectedResult;
+    private String actualResult;
     private TestMessage parentTest;
     private Object[] params;
 
