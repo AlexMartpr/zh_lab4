@@ -23,6 +23,7 @@ public class Test implements Serializable {
         this.testName = tn;
         this.expectedResult = er;
         this.params = p;
+        this.actualResult = "";
     }
 
     public String getTestName() {

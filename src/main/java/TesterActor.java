@@ -27,10 +27,8 @@ public class TesterActor extends AbstractActor{
     private Test checkResult(Test test) {
         try {
             String getRes = runTest(test);
-            System.out.println("Res: " + getRes);
             test.setActualResult(getRes);
         } catch (Exception excep) {
-            System.out.println(excep.toString());
             test.setActualResult(excep.toString());
         }
         return test;
