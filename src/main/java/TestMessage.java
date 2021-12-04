@@ -8,7 +8,7 @@ public class TestMessage implements Serializable {
     private String packageId;
     private String nameFunction;
     private List<Test> tests;
-    private String typeScript;
+    private String script;
 
     private final String PACKAGE_ID = "packageId";
     private final String NAME_FUNCTION = "functionName";
@@ -18,22 +18,22 @@ public class TestMessage implements Serializable {
     @JsonCreator
     public TestMessage(
             @JsonProperty(PACKAGE_ID) String pId,
-            @JsonProperty(TYPE_SCRIPT) String ts,
+            @JsonProperty(TYPE_SCRIPT) String s,
             @JsonProperty(NAME_FUNCTION) String nf,
             @JsonProperty(TESTS) List<Test> t
     ) {
         this.packageId = pId;
         this.nameFunction = nf;
         this.tests = t;
-        this.typeScript = ts;
+        this.script = s;
     }
 
     public String getPackageId() {
         return this.packageId;
     }
 
-    public String getTypeScript() {
-        return this.typeScript;
+    public String getScript() {
+        return this.script;
     }
 
     public String getNameFunction() {
