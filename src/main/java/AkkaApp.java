@@ -14,7 +14,7 @@ public class AkkaApp {
     private static final int PORT = 8080;
     public static void main(String[] args) {
         ActorSystem sys = ActorSystem.create("AkkaApp");
-        ActorRef route = sys.actorOf(Props.create(Router.class));
+        ActorRef route = sys.actorOf(Props.create(Router.class, sys));
 
         final Http http = Http.get(sys);
         final ActorMaterializer actorMat = ActorMaterializer.create(sys);
