@@ -30,6 +30,7 @@ public class TesterActor extends AbstractActor{
             System.out.println("Res: " + getRes);
             test.setActualResult(getRes);
         } catch (Exception excep) {
+            System.out.println(excep.toString());
             test.setActualResult(excep.toString());
         }
         return test;
