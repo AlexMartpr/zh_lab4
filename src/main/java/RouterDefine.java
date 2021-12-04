@@ -14,7 +14,7 @@ public class RouterDefine extends AllDirectives {
         this.router = r;
     }
 
-    public Route createRoute(Object Patterns) {
+    public Route createRoute() {
         return concat(
             get(() -> 
                 parameter(PARAMETR_NAME, id -> {
