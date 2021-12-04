@@ -17,7 +17,7 @@ public class TesterActor extends AbstractActor{
     }
 
     private String runTest(Test test) throws ScriptException, NoSuchMethodException {
-        ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName(JS_VER);
         TestMessage parent = test.getParentTest();
         engine.eval(parent.getScript());
         Invocable invoc = (Invocable) engine;
