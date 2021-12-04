@@ -25,6 +25,7 @@ public class RouterDefine extends AllDirectives {
                 entity(
                     Jackson.unmarshaller(TestMessage.class), testMsg -> {
                         router.tell(testMsg, ActorRef.noSender());
+                        System.out.println(testMsg);
                         return complete("OK");
                     }
                 ) )
