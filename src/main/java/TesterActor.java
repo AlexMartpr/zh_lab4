@@ -10,7 +10,7 @@ import akka.japi.pf.ReceiveBuilder;
 public class TesterActor extends AbstractActor{
     private ActorRef storeActor;
     
-    private static final String JS_VER = "nashorn";
+    private final String JS_VER = "nashorn";
 
     public TesterActor(ActorRef ac) {
         this.storeActor = ac;
