@@ -26,6 +26,7 @@ public class TestMessage implements Serializable {
         this.nameFunction = nf;
         this.tests = t;
         this.typeScript = ts;
+        System.out.println(pId + " " + nf + " " + t.toString());
     }
 
     public String getPackageId() {
