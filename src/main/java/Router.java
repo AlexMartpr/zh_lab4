@@ -1,5 +1,6 @@
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
+import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
@@ -10,9 +11,9 @@ public class Router extends AbstractActor {
 
     private final int NUMBER_WORKERS = 5;
 
-    public Router() {
-        storeActor = getContext().actorOf(Props.create(Store.class));
-        pool = getContext().actorOf(new RoundRobinPool(NUMBER_WORKERS).props(Props.create(TesterActor.class, storeActor)));
+    public Router(ActorSystem sys) {
+        storeActor = sys.actorOf(Props.create(Store.class));
+        pool = sys.actorOf(new RoundRobinPool(NUMBER_WORKERS).props(Props.create(TesterActor.class, storeActor)));
     }
 
     private void runTests(TestMessage test) {
