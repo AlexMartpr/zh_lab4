@@ -33,6 +33,7 @@ public class Store extends AbstractActor {
                 }
             }
         }
+        System.out.println(mapTestsResult);
         return mapTestsResult;
     }
 
