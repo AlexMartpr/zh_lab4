@@ -18,7 +18,7 @@ public class Test implements Serializable {
     public Test(
             @JsonProperty(TEST_NAME) String tn,
             @JsonProperty(EXPECTED_RESULT) String er,
-            @JsonProperty(PARAMS) Object[] p
+            @JsonProperty(PARAMS) Integer[] p
     ) {
         this.testName = tn;
         this.expectedResult = er;
